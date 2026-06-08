@@ -1,0 +1,77 @@
+create database if not exists film_evaluate default character set utf8mb4 collate utf8mb4_unicode_ci;
+use film_evaluate;
+
+drop table if exists comments;
+drop table if exists ratings;
+drop table if exists movies;
+drop table if exists users;
+
+create table users (
+    id bigint primary key auto_increment,
+    username varchar(50) not null unique,
+    password varchar(100) not null,
+    nickname varchar(50) not null,
+    role varchar(20) not null default 'USER',
+    created_at datetime not null
+) engine=InnoDB default charset=utf8mb4;
+
+create table movies (
+    id bigint primary key auto_increment,
+    title varchar(100) not null,
+    director varchar(100),
+    actors varchar(255),
+    genre varchar(50),
+    release_year int,
+    poster_url varchar(500),
+    description text,
+    created_at datetime not null,
+    updated_at datetime not null
+) engine=InnoDB default charset=utf8mb4;
+
+create table ratings (
+    id bigint primary key auto_increment,
+    user_id bigint not null,
+    movie_id bigint not null,
+    score int not null,
+    created_at datetime not null,
+    updated_at datetime not null,
+    unique key uk_user_movie (user_id, movie_id),
+    constraint fk_ratings_user foreign key (user_id) references users(id),
+    constraint fk_ratings_movie foreign key (movie_id) references movies(id) on delete cascade,
+    constraint ck_ratings_score check (score between 1 and 10)
+) engine=InnoDB default charset=utf8mb4;
+
+create table comments (
+    id bigint primary key auto_increment,
+    user_id bigint not null,
+    movie_id bigint not null,
+    content text not null,
+    created_at datetime not null,
+    constraint fk_comments_user foreign key (user_id) references users(id),
+    constraint fk_comments_movie foreign key (movie_id) references movies(id) on delete cascade
+) engine=InnoDB default charset=utf8mb4;
+
+insert into users (username, password, nickname, role, created_at) values
+('admin', 'admin123', '管理员', 'ADMIN', now());
+
+insert into movies (title, director, actors, genre, release_year, poster_url, description, created_at, updated_at) values
+('肖申克的救赎', '弗兰克·德拉邦特', '蒂姆·罗宾斯、摩根·弗里曼', '犯罪 / 剧情', 1994, '/static/images/douban/01.jpg', '银行家安迪被误判入狱，在漫长岁月中坚守希望与自由。', now(), now()),
+('霸王别姬', '陈凯歌', '张国荣、张丰毅、巩俐', '剧情 / 爱情', 1993, '/static/images/douban/02.jpg', '两位京剧演员半个世纪的悲欢离合，展现时代变迁下的人生选择。', now(), now()),
+('泰坦尼克号', '詹姆斯·卡梅隆', '莱昂纳多·迪卡普里奥、凯特·温斯莱特', '剧情 / 爱情 / 灾难', 1997, '/static/images/douban/03.jpg', '一段发生在泰坦尼克号上的爱情故事，见证灾难中的勇气与告别。', now(), now()),
+('阿甘正传', '罗伯特·泽米吉斯', '汤姆·汉克斯、罗宾·怀特', '剧情 / 爱情', 1994, '/static/images/douban/04.jpg', '阿甘以单纯坚定的人生态度，穿越美国近现代历史的重要时刻。', now(), now()),
+('千与千寻', '宫崎骏', '柊瑠美、入野自由、夏木真理', '剧情 / 动画 / 奇幻', 2001, '/static/images/douban/05.jpg', '少女千寻误入神灵世界，在冒险中学习勇气、责任与成长。', now(), now()),
+('美丽人生', '罗伯托·贝尼尼', '罗伯托·贝尼尼、尼可莱塔·布拉斯基', '剧情 / 喜剧 / 爱情 / 战争', 1997, '/static/images/douban/06.jpg', '父亲用温柔的谎言守护孩子，在残酷战争中保存生命的光。', now(), now()),
+('星际穿越', '克里斯托弗·诺兰', '马修·麦康纳、安妮·海瑟薇', '剧情 / 科幻 / 冒险', 2014, '/static/images/douban/07.jpg', '人类为寻找新家园穿越星际，亲情与时间成为最深的牵引。', now(), now()),
+('这个杀手不太冷', '吕克·贝松', '让·雷诺、娜塔莉·波特曼、加里·奥德曼', '剧情 / 动作 / 犯罪', 1994, '/static/images/douban/08.jpg', '孤独杀手与少女意外相遇，在危险中发展出特殊的守护关系。', now(), now()),
+('盗梦空间', '克里斯托弗·诺兰', '莱昂纳多·迪卡普里奥、约瑟夫·高登-莱维特', '剧情 / 科幻 / 悬疑', 2010, '/static/images/douban/09.jpg', '盗梦团队潜入层层梦境，执行一次几乎不可能完成的植入任务。', now(), now()),
+('楚门的世界', '彼得·威尔', '金·凯瑞、劳拉·琳妮', '剧情 / 科幻', 1998, '/static/images/douban/10.jpg', '楚门逐渐发现自己的人生是一场被全球观看的巨大真人秀。', now(), now()),
+('辛德勒的名单', '史蒂文·斯皮尔伯格', '连姆·尼森、本·金斯利、拉尔夫·费因斯', '剧情 / 历史 / 战争', 1993, '/static/images/douban/11.jpg', '商人辛德勒在战争中救下一批犹太人，见证人性与良知。', now(), now()),
+('忠犬八公的故事', '莱塞·霍尔斯道姆', '理查·基尔、琼·艾伦', '剧情', 2009, '/static/images/douban/12.jpg', '一只忠犬日复一日等待主人归来，讲述陪伴与忠诚。', now(), now()),
+('海上钢琴师', '朱塞佩·托纳多雷', '蒂姆·罗斯、普路特·泰勒·文斯', '剧情 / 音乐', 1998, '/static/images/douban/13.jpg', '出生在船上的天才钢琴师，用音乐度过一生，也守住自己的世界。', now(), now()),
+('疯狂动物城', '拜伦·霍华德、瑞奇·摩尔', '金妮弗·古德温、杰森·贝特曼', '喜剧 / 动画 / 冒险', 2016, '/static/images/douban/14.jpg', '兔子警官和狐狸搭档查案，在动物都市里寻找真相。', now(), now()),
+('三傻大闹宝莱坞', '拉库马·希拉尼', '阿米尔·汗、卡琳娜·卡普尔', '剧情 / 喜剧 / 爱情', 2009, '/static/images/douban/15.jpg', '三位大学好友挑战僵化教育制度，寻找真正热爱的生活。', now(), now()),
+('机器人总动员', '安德鲁·斯坦顿', '本·贝尔特、艾丽莎·奈特', '科幻 / 动画 / 冒险', 2008, '/static/images/douban/16.jpg', '孤独清洁机器人瓦力在废弃地球上遇见伊娃，开启宇宙旅程。', now(), now()),
+('放牛班的春天', '克里斯托夫·巴拉蒂', '热拉尔·朱尼奥、让-巴蒂斯特·莫尼耶', '剧情 / 音乐', 2004, '/static/images/douban/17.jpg', '音乐教师用合唱改变一群孩子的人生，让希望重新出现。', now(), now()),
+('无间道', '刘伟强、麦兆辉', '刘德华、梁朝伟、黄秋生', '剧情 / 犯罪 / 惊悚', 2002, '/static/images/douban/18.jpg', '警方卧底与黑帮卧底在身份迷局中互相追查，步步逼近真相。', now(), now()),
+('控方证人', '比利·怀尔德', '泰隆·鲍华、玛琳·黛德丽、查尔斯·劳顿', '剧情 / 犯罪 / 悬疑', 1957, '/static/images/douban/19.jpg', '一场谋杀案审判不断反转，证词与真相之间暗藏锋芒。', now(), now()),
+('寻梦环游记', '李·昂克里奇、阿德里安·莫利纳', '安东尼·冈萨雷斯、本杰明·布拉特', '喜剧 / 动画 / 奇幻 / 音乐', 2017, '/static/images/douban/20.jpg', '热爱音乐的少年进入亡灵世界，寻找家族与梦想之间的答案。', now(), now());

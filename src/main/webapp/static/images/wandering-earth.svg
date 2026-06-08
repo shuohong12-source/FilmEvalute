@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="680" viewBox="0 0 480 680">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="680" fill="url(#bg)"/>
+  <circle cx="240" cy="230" r="118" fill="#dbeafe"/>
+  <path d="M98 368c88 38 194 38 284 0" fill="none" stroke="#93c5fd" stroke-width="20"/>
+  <path d="M145 484h190l-44 94H189z" fill="#f8fafc" opacity=".9"/>
+  <text x="240" y="96" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="42" font-weight="700" fill="#fff">流浪地球</text>
+  <text x="240" y="630" text-anchor="middle" font-family="Arial" font-size="24" fill="#bfdbfe">SCI-FI MOVIE</text>
+</svg>

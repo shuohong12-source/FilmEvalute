@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="680" viewBox="0 0 480 680">
+  <rect width="480" height="680" fill="#7f1d1d"/>
+  <circle cx="240" cy="236" r="126" fill="#fee2e2"/>
+  <path d="M138 250c70-78 132-78 204 0" fill="none" stroke="#991b1b" stroke-width="20" stroke-linecap="round"/>
+  <path d="M162 366h156v160H162z" fill="#fef3c7"/>
+  <path d="M178 366l62 80 62-80" fill="none" stroke="#b91c1c" stroke-width="18"/>
+  <text x="240" y="98" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="40" font-weight="700" fill="#fff7ed">霸王别姬</text>
+  <text x="240" y="626" text-anchor="middle" font-family="Arial" font-size="24" fill="#fed7aa">CLASSIC DRAMA</text>
+</svg>

@@ -1,0 +1,305 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f6f8;
+    color: #1f2933;
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+a {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8%;
+    background: #111827;
+    color: #fff;
+}
+
+.topbar a,
+.topbar span {
+    color: #fff;
+    margin-left: 16px;
+}
+
+.brand {
+    margin-left: 0 !important;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 20px;
+}
+
+.narrow {
+    max-width: 560px;
+}
+
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.panel,
+.movie-card,
+.table {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.panel {
+    margin-top: 20px;
+    padding: 22px;
+}
+
+.form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font: inherit;
+}
+
+button,
+.button-link {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: #111827;
+    cursor: pointer;
+    font: inherit;
+}
+
+.primary {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #fff;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    max-width: 460px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.movie-card {
+    overflow: hidden;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.movie-card div {
+    padding: 14px 16px 16px;
+    text-align: left;
+}
+
+.movie-card h2 {
+    margin: 0 0 4px;
+    line-height: 1.25;
+}
+
+.movie-card p {
+    margin: 6px 0;
+    line-height: 1.45;
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.poster {
+    width: 260px;
+    min-height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e5e7eb;
+}
+
+.description {
+    line-height: 1.8;
+}
+
+.score-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-start;
+    margin: 2px 0 8px;
+    color: #475569;
+}
+
+.stars {
+    position: relative;
+    display: inline-block;
+    width: 92px;
+    height: 22px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.stars-back,
+.stars-front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+}
+
+.stars-back {
+    color: #cbd5e1;
+}
+
+.stars-front {
+    overflow: hidden;
+    color: #f59e0b;
+}
+
+.rating-form {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+}
+
+.rate-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-top: 8px;
+}
+
+.rate-star {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #cbd5e1;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.12s ease, transform 0.12s ease;
+}
+
+.rate-star:hover,
+.rate-star.active {
+    color: #f59e0b;
+}
+
+.rate-star:hover {
+    transform: scale(1.08);
+}
+
+.rate-hint {
+    margin: 4px 0 0;
+    color: #64748b;
+}
+
+.comment {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.comment:last-child {
+    border-bottom: 0;
+}
+
+.table {
+    width: 100%;
+    margin-top: 18px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.actions,
+.inline-form {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.alert {
+    margin: 14px 0;
+    padding: 12px 14px;
+    border-radius: 6px;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.empty {
+    color: #64748b;
+}
+
+@media (max-width: 720px) {
+    .topbar,
+    .page-head,
+    .detail,
+    .rating-form {
+        display: block;
+    }
+
+    .topbar nav {
+        margin-top: 12px;
+    }
+
+    .search {
+        margin-top: 12px;
+    }
+}

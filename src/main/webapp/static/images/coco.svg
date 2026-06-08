@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="680" viewBox="0 0 480 680">
+  <rect width="480" height="680" fill="#164e63"/>
+  <circle cx="240" cy="238" r="120" fill="#fef9c3"/>
+  <path d="M164 232h152M188 274h104" stroke="#0891b2" stroke-width="16" stroke-linecap="round"/>
+  <path d="M190 406c54-44 112-44 166 0v94H190z" fill="#f97316"/>
+  <circle cx="192" cy="418" r="18" fill="#facc15"/>
+  <circle cx="288" cy="418" r="18" fill="#facc15"/>
+  <text x="240" y="98" text-anchor="middle" font-family="Microsoft YaHei, Arial" font-size="40" font-weight="700" fill="#ecfeff">寻梦环游记</text>
+  <text x="240" y="626" text-anchor="middle" font-family="Arial" font-size="24" fill="#cffafe">ANIMATION</text>
+</svg>
