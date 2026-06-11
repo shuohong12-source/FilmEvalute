@@ -1,5 +1,6 @@
 # 电影评分系统
 
+额为全额全额
 这是一个基于 Spring Boot、MyBatis-Plus、MySQL、JSP 的电影评分系统，不包含影片播放功能。
 
 ## 功能
@@ -23,7 +24,7 @@
 ## 数据库初始化
 
 1. 在 MySQL 中执行 `src/main/resources/schema.sql`。
-2. 设置数据库连接环境变量，或使用默认用户名 `root` 和空密码。
+2. 设置数据库连接环境变量，或使用默认用户名 `root` 和默认密码 `20051112`。
 
 PowerShell 示例：
 

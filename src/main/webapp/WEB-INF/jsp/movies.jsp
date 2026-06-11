@@ -29,6 +29,7 @@
                 <div>
                     <h2><a href="${ctx}/movies/${movie.id}">${movie.title}</a></h2>
                     <c:set var="score" value="${movie.averageScore}" scope="request"/>
+                    <c:set var="scorePercent" value="${movie.scorePercent}" scope="request"/>
                     <jsp:include page="common/rating.jsp"/>
                     <p>导演：${movie.director}</p>
                     <p>类型：${movie.genre}</p>

@@ -24,6 +24,9 @@ public class Movie {
     @TableField(exist = false)
     private Double averageScore;
 
+    @TableField(exist = false)
+    private Double scorePercent;
+
     public Long getId() {
         return id;
     }
@@ -110,5 +113,13 @@ public class Movie {
 
     public void setAverageScore(Double averageScore) {
         this.averageScore = averageScore;
+    }
+
+    public Double getScorePercent() {
+        return scorePercent;
+    }
+
+    public void setScorePercent(Double scorePercent) {
+        this.scorePercent = scorePercent;
     }
 }

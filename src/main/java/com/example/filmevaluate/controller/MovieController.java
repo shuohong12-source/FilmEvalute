@@ -29,8 +29,10 @@ public class MovieController {
     @GetMapping("/movies/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         User loginUser = (User) session.getAttribute("loginUser");
+        Double averageScore = movieService.getAverageScore(id);
         model.addAttribute("movie", movieService.findById(id));
-        model.addAttribute("averageScore", movieService.getAverageScore(id));
+        model.addAttribute("averageScore", averageScore);
+        model.addAttribute("scorePercent", averageScore * 10);
         model.addAttribute("comments", movieService.getComments(id));
         model.addAttribute("userRating", loginUser == null ? null : movieService.getUserRating(id, loginUser.getId()));
         return "movie-detail";

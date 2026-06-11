@@ -17,6 +17,7 @@
         <div>
             <h1>${movie.title}</h1>
             <c:set var="score" value="${averageScore}" scope="request"/>
+            <c:set var="scorePercent" value="${scorePercent}" scope="request"/>
             <jsp:include page="common/rating.jsp"/>
             <p><strong>导演：</strong>${movie.director}</p>
             <p><strong>主演：</strong>${movie.actors}</p>

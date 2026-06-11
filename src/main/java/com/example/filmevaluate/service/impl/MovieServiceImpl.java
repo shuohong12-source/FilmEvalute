@@ -39,7 +39,9 @@ public class MovieServiceImpl implements MovieService {
         }
         List<Movie> movies = movieMapper.selectList(query);
         for (Movie movie : movies) {
-            movie.setAverageScore(getAverageScore(movie.getId()));
+            Double averageScore = getAverageScore(movie.getId());
+            movie.setAverageScore(averageScore);
+            movie.setScorePercent(averageScore * 10);
         }
         return movies;
     }
