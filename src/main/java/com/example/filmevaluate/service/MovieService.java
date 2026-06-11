@@ -9,6 +9,8 @@ import java.util.List;
 public interface MovieService {
     List<Movie> findAll(String keyword);
 
+    List<Movie> findAllForAdmin(String keyword);
+
     Movie findById(Long id);
 
     void saveMovie(Movie movie);

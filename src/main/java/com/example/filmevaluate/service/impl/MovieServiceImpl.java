@@ -30,12 +30,25 @@ public class MovieServiceImpl implements MovieService {
     public List<Movie> findAll(String keyword) {
         LambdaQueryWrapper<Movie> query = new LambdaQueryWrapper<Movie>()
                 .orderByDesc(Movie::getCreatedAt);
+        return findMovies(keyword, query);
+    }
+
+    @Override
+    public List<Movie> findAllForAdmin(String keyword) {
+        LambdaQueryWrapper<Movie> query = new LambdaQueryWrapper<Movie>()
+                .orderByAsc(Movie::getId);
+        return findMovies(keyword, query);
+    }
+
+    private List<Movie> findMovies(String keyword, LambdaQueryWrapper<Movie> query) {
         if (StringUtils.hasText(keyword)) {
-            query.like(Movie::getTitle, keyword.trim())
+            String keywordText = keyword.trim();
+            query.and(wrapper -> wrapper
+                    .like(Movie::getTitle, keywordText)
                     .or()
-                    .like(Movie::getDirector, keyword.trim())
+                    .like(Movie::getDirector, keywordText)
                     .or()
-                    .like(Movie::getGenre, keyword.trim());
+                    .like(Movie::getGenre, keywordText));
         }
         List<Movie> movies = movieMapper.selectList(query);
         for (Movie movie : movies) {

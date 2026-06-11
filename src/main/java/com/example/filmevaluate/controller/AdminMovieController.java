@@ -22,7 +22,7 @@ public class AdminMovieController {
 
     @GetMapping
     public String list(@RequestParam(required = false) String keyword, Model model) {
-        model.addAttribute("movies", movieService.findAll(keyword));
+        model.addAttribute("movies", movieService.findAllForAdmin(keyword));
         model.addAttribute("keyword", keyword);
         return "admin/movies";
     }

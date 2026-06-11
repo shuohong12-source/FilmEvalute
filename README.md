@@ -52,6 +52,19 @@ film_evaluate
 密码：admin123
 ```
 
+演示用户账号：
+
+```text
+用户名：demo01 到 demo06
+密码：demo123
+```
+
+如需批量生成演示评分和评论，可执行：
+
+```bash
+mysql --default-character-set=utf8mb4 -uroot -p你的密码 -e "source C:/Users/38720/Desktop/Daily life/filmevalute/src/main/resources/seed_demo_reviews.sql"
+```
+
 示例影片已扩充为 20 部，并配置了本地海报，例如：
 
 ```text

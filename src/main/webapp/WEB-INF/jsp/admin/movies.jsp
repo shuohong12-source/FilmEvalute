@@ -26,7 +26,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>序号</th>
             <th>片名</th>
             <th>导演</th>
             <th>类型</th>
@@ -35,9 +35,9 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${movies}" var="movie">
+        <c:forEach items="${movies}" var="movie" varStatus="status">
             <tr>
-                <td>${movie.id}</td>
+                <td>${status.count}</td>
                 <td>${movie.title}</td>
                 <td>${movie.director}</td>
                 <td>${movie.genre}</td>
